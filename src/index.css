@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --popover: #ffffff;
+    --popover-foreground: #09090b;
+    --card: #ffffff;
+    --card-foreground: #09090b;
+    --border: #e4e4e7;
+    --input: #e4e4e7;
+    --primary: #18181b;
+    --primary-foreground: #fafafa;
+    --secondary: #f4f4f5;
+    --secondary-foreground: #18181b;
+    --accent: #f4f4f5;
+    --accent-foreground: #18181b;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --ring: #18181b;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --popover: #09090b;
+    --popover-foreground: #fafafa;
+    --card: #09090b;
+    --card-foreground: #fafafa;
+    --border: #27272a;
+    --input: #27272a;
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+    --secondary: #27272a;
+    --secondary-foreground: #fafafa;
+    --accent: #27272a;
+    --accent-foreground: #fafafa;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
+    --ring: #d4d4d8;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .dark .glass {
+    background: rgba(9, 9, 11, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
