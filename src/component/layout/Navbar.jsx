@@ -5,6 +5,8 @@ import { CartContext } from "../../context/CartContext";
 import { WishlistContext } from "../../context/WishlistContext";
 import CartDrawer from "./CartDrawer";
 import WishlistDrawer from "./WishlistDrawer";
+import logo from "../../assets/logo.png";
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -71,7 +73,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
             <div className="bg-white p-1 rounded-xl shadow-sm border border-border group-hover:scale-105 transition-transform duration-300 w-10 h-10 overflow-hidden flex items-center justify-center">
               <img
-                src="/src/assets/logo.png"
+                src={logo}
                 alt="Velora Logo"
                 className="w-full h-full object-contain"
               />
