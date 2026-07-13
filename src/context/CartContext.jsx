@@ -23,17 +23,17 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('shopping_cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
+  const addToCart = (product, quantityToAdd = 1) => {
     setCartItems(prev => {
       const existingItem = prev.find(item => item.id === product.id);
       if (existingItem) {
         // Increment quantity if exists
         return prev.map(item => 
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id ? { ...item, quantity: item.quantity + quantityToAdd } : item
         );
       } else {
-        // Create new item with quantity 1
-        return [...prev, { ...product, quantity: 1 }];
+        // Create new item with quantity
+        return [...prev, { ...product, quantity: quantityToAdd }];
       }
     });
   };
