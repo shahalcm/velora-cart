@@ -263,7 +263,7 @@ const ProductDetail = () => {
                 <div key={i} className="aspect-square w-16 lg:w-20 bg-muted rounded-2xl"></div>
               ))}
             </div>
-            <div className="flex-grow aspect-square bg-muted rounded-3xl"></div>
+            <div className="grow aspect-square bg-muted rounded-3xl"></div>
           </div>
           <div className="lg:col-span-5 space-y-6">
             <div className="h-4 bg-muted w-24 rounded-full"></div>
@@ -340,7 +340,7 @@ const ProductDetail = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`aspect-square w-16 lg:w-20 rounded-2xl overflow-hidden border-2 transition-all relative group flex-shrink-0 ${
+                  className={`aspect-square w-16 lg:w-20 rounded-2xl overflow-hidden border-2 transition-all relative group shrink-0 ${
                     activeImage === idx
                       ? "border-foreground shadow-sm scale-102"
                       : "border-transparent opacity-60 hover:opacity-100 hover:scale-102"
@@ -361,7 +361,7 @@ const ProductDetail = () => {
 
             {/* Main Interactive Zoom Area */}
             <div
-              className="flex-grow aspect-square bg-muted rounded-3xl overflow-hidden border border-border shadow-sm relative group cursor-zoom-in select-none"
+              className="grow aspect-square bg-muted rounded-3xl overflow-hidden border border-border shadow-sm relative group cursor-zoom-in select-none"
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -515,7 +515,7 @@ const ProductDetail = () => {
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`h-11 min-w-[3rem] px-3.5 rounded-xl border text-sm font-bold transition-all ${
+                  className={`h-11 min-w-12 px-3.5 rounded-xl border text-sm font-bold transition-all ${
                     selectedSize === size
                       ? "bg-foreground text-background border-foreground shadow-sm scale-102"
                       : "bg-background border-border text-foreground hover:border-foreground"
@@ -538,7 +538,7 @@ const ProductDetail = () => {
               >
                 <Minus size={16} />
               </button>
-              <span className="flex-grow text-center text-sm font-black text-foreground">
+              <span className="grow text-center text-sm font-black text-foreground">
                 {quantity}
               </span>
               <button
@@ -732,7 +732,7 @@ const ProductDetail = () => {
                   </div>
 
                   {/* Review text contents */}
-                  <div className="flex-grow space-y-3">
+                  <div className="grow space-y-3">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                       <div>
                         <h4 className="font-bold text-foreground">{review.author}</h4>
@@ -803,7 +803,7 @@ const ProductDetail = () => {
                   type="text"
                   readOnly
                   value={window.location.href}
-                  className="flex-grow bg-transparent text-xs font-medium focus:outline-none overflow-x-auto text-muted-foreground px-2"
+                  className="grow bg-transparent text-xs font-medium focus:outline-none overflow-x-auto text-muted-foreground px-2"
                 />
                 <button
                   onClick={handleCopyLink}

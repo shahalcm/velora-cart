@@ -12,7 +12,17 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const token = localStorage.getItem("user_token");
+    if (token) {
+      try {
+        return JSON.parse(token);
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  });
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const { cartCount } = useContext(CartContext);
@@ -25,7 +35,7 @@ const Navbar = () => {
     if (token) {
       try {
         setUser(JSON.parse(token));
-      } catch (e) {
+      } catch {
         setUser(null);
       }
     } else {
@@ -34,7 +44,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    checkAuth();
     window.addEventListener("authChange", checkAuth);
     return () => window.removeEventListener("authChange", checkAuth);
   }, []);
@@ -49,6 +58,7 @@ const Navbar = () => {
 
   // Close mobile menu on route change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
@@ -78,7 +88,7 @@ const Navbar = () => {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+            <span className="text-2xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-foreground to-foreground/70">
               Velora
             </span>
           </Link>
@@ -160,7 +170,7 @@ const Navbar = () => {
                 </span>
               )}
             </button>
-            <div className="h-6 w-[1px] bg-border mx-1"></div>
+            <div className="h-6 w-px bg-border mx-1"></div>
 
             {user ? (
               <Link
